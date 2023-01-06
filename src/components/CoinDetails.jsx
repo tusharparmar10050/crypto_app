@@ -14,7 +14,7 @@ const CoinDetails = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [currency, setCurrency] = useState("inr");
-  const [days, setDays] = useState('24h');
+  const [days, setDays] = useState('1d');
   const [chartArray, setChartArray] = useState([]);
 
 
@@ -22,12 +22,13 @@ const CoinDetails = () => {
   const currencySymbol =
     currency === "inr" ? "₹" : currency === "eur" ? "€" : "$";
 
-  const btns = ['24h', '7d', '14d', '30d', '60d', '200d', '1y', 'max']
+  const btns = ['1d', '7d', '14d', '30d', '60d', '200d', '1y', 'max']
   const switchChartStats = (key) => {
     switch (key) {
-      case '24h':
-        setDays("24h");
+      case '1d':
+        setDays("1d");
         setLoading(true);
+        console.log(key)
         break;
       case '7d':
         setDays("7d");
@@ -59,8 +60,8 @@ const CoinDetails = () => {
         break;
 
       default:
-        case '24h':
-        setDays("24h");
+        case '1d':
+        setDays("1d");
         setLoading(true);
         break;
     }
